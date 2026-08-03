@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
 <head>
@@ -18,7 +18,7 @@
 <ul id="sites">
 {{#each trips}}
 <li>
-<img src="images/{{this.image}}" alt="{{this.name}}">
+<a href="/api/trips/{{this.code}}"><img src="images/{{this.image}}" alt="{{this.name}}"></a>
 <h2>{{this.name}}</h2>
 <p><strong>{{this.resort}}</strong> | {{this.length}} | ${{this.perPerson}} per person</p>
 {{{this.description}}}
