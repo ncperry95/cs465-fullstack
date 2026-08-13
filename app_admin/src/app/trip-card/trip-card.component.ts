@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Trip } from '../models/trip';
 import { TripDataService } from '../services/trip-data.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-trip-card',
@@ -21,11 +22,23 @@ export class TripCardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private tripDataService: TripDataService
+    private tripDataService: TripDataService,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
 
+  }
+
+  // Delegates to the AuthenticationService so the template has one question
+  // to ask. Drives whether the Edit and Delete buttons render at all.
+  //
+  // Note this is presentation only. Hiding a button stops an honest user from
+  // clicking something that would fail; it stops nobody from calling the API
+  // directly. The actual enforcement is authenticateJWT on the server, which
+  // is why both halves exist.
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
   }
 
   // Stash the trip code in browser local storage so the edit-trip

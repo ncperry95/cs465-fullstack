@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { TripListingComponent } from './trip-listing/trip-listing.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
+// The TripListingComponent import is gone. It reaches the page through the
+// router now, so importing it here as well served no purpose.
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TripListingComponent],
+  imports: [CommonModule, RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

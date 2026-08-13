@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" routerLink="">
+        <img src="assets/images/logo.png" alt="Travlr Getaways">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link active" routerLink="">Trips</a>
+        </div>
+    </div>
+    <div class="navbar-end ms-auto">
+        <a class="nav-item nav-link" routerLink="login" *ngIf="!isLoggedIn()">
+            <span class="has-icon-left">Log In</span>
+        </a>
+        <span class="nav-item" *ngIf="isLoggedIn()">
+            <span class="navbar-text me-3">{{ getUserName() }}</span>
+            <a class="nav-link d-inline" href="javascript:void(0)" (click)="onLogout()">
+                <span class="has-icon-left">Log Out</span>
+            </a>
+        </span>
+    </div>
+</nav>
